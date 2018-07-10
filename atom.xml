@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-05T16:58:02.052Z</updated>
+  <updated>2018-07-10T14:46:50.728Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>胡思乱想</title>
+    <link href="http://yoursite.com/2018/07/10/%E8%83%A1%E6%80%9D%E4%B9%B1%E6%83%B3/"/>
+    <id>http://yoursite.com/2018/07/10/胡思乱想/</id>
+    <published>2018-07-10T14:45:31.000Z</published>
+    <updated>2018-07-10T14:46:50.728Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="0x00-没有什么了"><a href="#0x00-没有什么了" class="headerlink" title="0x00 没有什么了"></a>0x00 没有什么了</h4><p>我可真是个废物啊</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;0x00-没有什么了&quot;&gt;&lt;a href=&quot;#0x00-没有什么了&quot; class=&quot;headerlink&quot; title=&quot;0x00 没有什么了&quot;&gt;&lt;/a&gt;0x00 没有什么了&lt;/h4&gt;&lt;p&gt;我可真是个废物啊&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python SandBox Bypass</title>
     <link href="http://yoursite.com/2017/10/22/Python-SandBox-Bypass/"/>
     <id>http://yoursite.com/2017/10/22/Python-SandBox-Bypass/</id>
     <published>2017-10-22T13:11:15.000Z</published>
-    <updated>2017-11-05T16:58:02.052Z</updated>
+    <updated>2017-11-05T16:58:02.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="0x00-shell执行函数"><a href="#0x00-shell执行函数" class="headerlink" title="0x00 shell执行函数"></a>0x00 shell执行函数</h4><pre><code>os.system(&apos;whoami&apos;)
 os.popen(&apos;whoami&apos;).read()
