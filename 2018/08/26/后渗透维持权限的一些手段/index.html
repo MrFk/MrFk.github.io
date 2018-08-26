@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      后渗透维持权限的一些手段 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="0x00 写在最前面在拿到域控之后我们有许多手段来维持自己的权限,今天在这里就当作是一个自己的记录,还有作为抛砖引玉,欢迎大家多多交流. 0x01 自启的一些手段在拿到权限之后,通过对目标机器种植自启的远控不失为一种维持权限的手法,在这里提几种自启的手段.  首先是注册表自启,直接把运行的程序/脚本加入HKEY_CURRENT_USER/Software/Microsoft/Windows/Cur">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后渗透维持权限的一些手段 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/08/26/后渗透维持权限的一些手段/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="0x00 写在最前面在拿到域控之后我们有许多手段来维持自己的权限,今天在这里就当作是一个自己的记录,还有作为抛砖引玉,欢迎大家多多交流. 0x01 自启的一些手段在拿到权限之后,通过对目标机器种植自启的远控不失为一种维持权限的手法,在这里提几种自启的手段.  首先是注册表自启,直接把运行的程序/脚本加入HKEY_CURRENT_USER/Software/Microsoft/Windows/Cur">
+<meta property="og:updated_time" content="2018-08-26T07:38:20.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="后渗透维持权限的一些手段 | Hexo">
+<meta name="twitter:description" content="0x00 写在最前面在拿到域控之后我们有许多手段来维持自己的权限,今天在这里就当作是一个自己的记录,还有作为抛砖引玉,欢迎大家多多交流. 0x01 自启的一些手段在拿到权限之后,通过对目标机器种植自启的远控不失为一种维持权限的手法,在这里提几种自启的手段.  首先是注册表自启,直接把运行的程序/脚本加入HKEY_CURRENT_USER/Software/Microsoft/Windows/Cur">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/links" title="" class="">友链</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">后渗透维持权限的一些手段</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-08-26" class="post-meta__date date">2018-08-26</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="0x00-写在最前面"><a href="#0x00-写在最前面" class="headerlink" title="0x00 写在最前面"></a>0x00 写在最前面</h1><p>在拿到域控之后我们有许多手段来维持自己的权限,今天在这里就当作是一个自己的记录,还有作为抛砖引玉,欢迎大家多多交流.</p>
+<h1 id="0x01-自启的一些手段"><a href="#0x01-自启的一些手段" class="headerlink" title="0x01 自启的一些手段"></a>0x01 自启的一些手段</h1><p>在拿到权限之后,通过对目标机器种植自启的远控不失为一种维持权限的手法,在这里提几种自启的手段.</p>
+<ol>
+<li><p>首先是注册表自启,直接把运行的程序/脚本加入<code>HKEY_CURRENT_USER/Software/Microsoft/Windows/CurrentVersion/Run</code>即可;或者是通过logon scripts脚本也可达到自启的目的,所需要做的就是在<code>HKEY_CURRENT_USER/Environment</code>这个注册表创建一个键名为<code>UserInitMprLogonScript</code>的字符串键,键值为需要自启的脚本或者程序.</p>
+<pre><code>这两种方法几乎都要做到文件落地,而且查杀比较容易,但是添加手段比较容易.
+</code></pre></li>
+<li><p>攻击者可以通过Schtasks的方式每天在特定时间段或者开机的时候运行攻击者所指定的命令.例如<code>schtasks.exe /Create /TN update /TR xx(your command)  /SC ONLOGON /F /RL HIGHEST</code>就是在每天开机的时候运行攻击者自定义的command.</p>
+</li>
+<li><p>wmi后门的兴起主要是在defcon23之后的演讲,wmi后门触发的方式就不像前两种那么单一,他的触发点可以是开机或者是某个特定开关被触发(比如每周五早上九点)之类,wmi也可以结合powershell做到无文件后门,有兴趣的朋友可以自己去了解一下,这里附上<a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Persistence/Persistence.psm1" target="_blank" rel="external">PowerSploit的一段后门</a>.</p>
+</li>
+</ol>
+<h1 id="0x02-Windows隐藏用户的建立"><a href="#0x02-Windows隐藏用户的建立" class="headerlink" title="0x02 Windows隐藏用户的建立"></a>0x02 Windows隐藏用户的建立</h1><p>Windows隐藏用户的建立主要参考<a href="https://3gstudent.github.io/" target="_blank" rel="external">3gstudent前辈</a>的<a href="https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B8%90%E6%88%B7%E9%9A%90%E8%97%8F/" target="_blank" rel="external">这篇博文</a>.其主要步骤如下:</p>
+<p>首先即赋予当前用户对<code>HKEY_LOCAL_MACHINE\SAM\SAM\</code>该键值的完全访问权限(可读可写),然后通过<code>net user</code>命令添加一个不可见特殊账户,再从注册表<code>HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\Names</code>导出创建特殊用户的注册表然后删除它,并从注册表<code>HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\</code>找到特殊用户对应类型的注册表项并在导出后删除掉它,修改后者键F的值为管理员账户对应注册表键值(默认为<code>HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\000001F4</code>)键F的值,再导入这两个注册表即可完成隐藏用户的建立.</p>
+<h1 id="0x03-Sid-history构建DA后门"><a href="#0x03-Sid-history构建DA后门" class="headerlink" title="0x03 Sid history构建DA后门"></a>0x03 Sid history构建DA后门</h1><p>我们可以利用Sid History的特性为一个普通用户赋予域控权限,在mimikatz上面命令如下</p>
+<pre><code>mimikatz.exe
+privilege::debug
+sid::patch
+sid::add /sam:test_account /new:dcfortest\administrator
+</code></pre><p>在完成上述命令之后即可为test_account赋予了domain admins权限并且通过<code>net user test_account /domain</code>并不能看到test_account属于<code>domain admins</code>用户组.该后门的查杀需要管理员去域控翻看sid history的日志(id为4765和4766).</p>
+<h1 id="0x04-ACL后门"><a href="#0x04-ACL后门" class="headerlink" title="0x04 ACL后门"></a>0x04 ACL后门</h1><p>众所周知,普通用户对于sysvol目录只拥有可读不可写的权限,我们可以通过该方式来构建一个域的后门.在域控执行如下的powershell命令</p>
+<pre><code>icals c:\windows\sysvol\sysvol\dcfortest.com\policies\ /grant server1:F /inheritance:e
+</code></pre><p>执行完成之后server1账户即拥有了对sysvol目录可读可写的权限,之后要做的事情不再赘述.</p>
+<h1 id="0x05-后话"><a href="#0x05-后话" class="headerlink" title="0x05 后话"></a>0x05 后话</h1><p>只是介绍了一些比较基础的维持权限的手法,还有一些手法并没有写上,在这里只是起一个抛砖引玉的作用,欢迎大家多多指教.</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
